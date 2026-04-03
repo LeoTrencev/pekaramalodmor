@@ -6,9 +6,11 @@ const ThemeToggle = () => {
 
   useEffect(() => {
     const saved = localStorage.getItem("theme");
-    if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    if (saved === "dark") {
       setDark(true);
       document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
     }
   }, []);
 
@@ -21,7 +23,7 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggle}
-      className="p-2 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors"
+      className="p-2 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110 hover:rotate-12"
       aria-label="Toggle theme"
     >
       {dark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
