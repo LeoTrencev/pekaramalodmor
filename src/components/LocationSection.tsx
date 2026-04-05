@@ -61,8 +61,8 @@ const LocationSection = () => {
                 title: t("loc.hours"),
                 content: (
                   <div className="text-muted-foreground space-y-1">
-                    <p>{t("loc.monSat")}: <span className="text-foreground font-medium">06:00 – 22:00</span></p>
-                    <p>{t("loc.sun")}: <span className="text-foreground font-medium">07:00 – 21:00</span></p>
+                    <p>{t("loc.monSat")}: <span className="text-foreground font-medium">06:00 – 21:30</span></p>
+                    <p>{t("loc.sun")}: <span className="text-foreground font-medium">{t("loc.closed")}</span></p>
                   </div>
                 ),
                 delay: 100,
@@ -71,8 +71,8 @@ const LocationSection = () => {
                 icon: Phone,
                 title: t("loc.contact"),
                 content: (
-                  <a href="tel:+38978219675" className="text-primary hover:underline font-medium">
-                    +389 78 219 675
+                    <a href="tel:+38971216251" className="text-primary hover:underline font-medium">
+                    071 216 251
                   </a>
                 ),
                 delay: 200,

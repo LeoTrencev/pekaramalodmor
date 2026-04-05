@@ -4,13 +4,17 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const MenuSection = () => {
-  const [active, setActive] = useState(0);
-  const cat = categories[active];
+  const [active, setActive] = useState<number | null>(0);
   const { ref: sectionRef, isVisible } = useScrollAnimation();
   const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation({ rootMargin: "0px 0px -20px 0px" });
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   const currency = t("menu.currency");
+
+  const showAll = active === null;
+  const displayItems = showAll
+    ? categories.flatMap((c) => c.items)
+    : categories[active]?.items ?? [];
 
   return (
     <section id="menu" className="py-20 bg-background">
@@ -32,6 +36,16 @@ const MenuSection = () => {
 
         {/* Category tabs */}
         <div className="flex overflow-x-auto gap-2 pb-4 mb-8 scrollbar-hide">
+          <button
+            onClick={() => setActive(null)}
+            className={`flex-shrink-0 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+              showAll
+                ? "bg-primary text-primary-foreground shadow-lg scale-105"
+                : "bg-secondary text-secondary-foreground hover:bg-primary/10 hover:scale-[1.02]"
+            }`}
+          >
+            {t("menu.all")}
+          </button>
           {categories.map((c, i) => (
             <button
               key={c.name}
@@ -42,17 +56,16 @@ const MenuSection = () => {
                   : "bg-secondary text-secondary-foreground hover:bg-primary/10 hover:scale-[1.02]"
               }`}
             >
-              <span className="mr-1.5">{c.icon}</span>
-              {t(`cat.${c.name}`)}
+              {lang === "en" ? c.nameEn : c.name}
             </button>
           ))}
         </div>
 
         {/* Items grid */}
         <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {cat.items.map((item, idx) => (
+          {displayItems.map((item, idx) => (
             <div
-              key={item.name}
+              key={`${item.name}-${idx}`}
               className={`bg-card rounded-2xl border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-500 group overflow-hidden ${
                 gridVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
@@ -62,7 +75,7 @@ const MenuSection = () => {
                 <div className="relative h-44 overflow-hidden">
                   <img
                     src={item.image}
-                    alt={item.name}
+                    alt={lang === "en" ? item.nameEn : item.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     loading="lazy"
                   />
@@ -76,10 +89,12 @@ const MenuSection = () => {
                 <div className="flex justify-between items-start gap-3">
                   <div className="flex-1">
                     <h3 className="font-display font-semibold text-card-foreground group-hover:text-primary transition-colors">
-                      {item.name}
+                      {lang === "en" ? item.nameEn : item.name}
                     </h3>
-                    {item.desc && (
-                      <p className="text-muted-foreground text-sm mt-1">{item.desc}</p>
+                    {(lang === "en" ? item.descEn : item.desc) && (
+                      <p className="text-muted-foreground text-sm mt-1">
+                        {lang === "en" ? item.descEn : item.desc}
+                      </p>
                     )}
                   </div>
                   {!item.image && (
