@@ -71,8 +71,8 @@ const LocationSection = () => {
                 icon: Phone,
                 title: t("loc.contact"),
                 content: (
-                  <a href="tel:+38978219675" className="text-primary hover:underline font-medium">
-                    +389 78 219 675
+                    <a href="tel:+38971216251" className="text-primary hover:underline font-medium">
+                    071 216 251
                   </a>
                 ),
                 delay: 200,

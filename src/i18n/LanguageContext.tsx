@@ -31,20 +31,7 @@ const translations: Record<string, Record<Lang, string>> = {
   "menu.title": { mk: "Свежо & Вкусно", en: "Fresh & Delicious" },
   "menu.desc": { mk: "Разгледајте ја нашата богата понуда — од свежи пецива до домашни десерти", en: "Browse our rich selection — from fresh pastries to homemade desserts" },
   "menu.currency": { mk: "ден", en: "MKD" },
-
-  // Menu categories
-  "cat.Бели пецива": { mk: "Бели пецива", en: "White Pastries" },
-  "cat.Пица": { mk: "Пица", en: "Pizza" },
-  "cat.Лиснато": { mk: "Лиснато", en: "Puff Pastry" },
-  "cat.Бурек": { mk: "Бурек", en: "Burek" },
-  "cat.Вртена пита": { mk: "Вртена пита", en: "Twisted Pie" },
-  "cat.Врап": { mk: "Врап", en: "Wrap" },
-  "cat.Пастрмајлија": { mk: "Пастрмајлија", en: "Pastrmajlija" },
-  "cat.Пирошка": { mk: "Пирошка", en: "Piroshka" },
-  "cat.Печено пиле": { mk: "Печено пиле", en: "Roasted Chicken" },
-  "cat.Десерти": { mk: "Десерти", en: "Desserts" },
-  "cat.Кифлички, погачи и ситни колачи": { mk: "Кифлички, погачи и ситни колачи", en: "Croissants, Pogacha & Petit Fours" },
-  "cat.Пијалоци": { mk: "Пијалоци", en: "Beverages" },
+  "menu.all": { mk: "Сите", en: "All" },
 
   // About
   "about.subtitle": { mk: "За нас", en: "About Us" },
