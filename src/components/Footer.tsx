@@ -1,6 +1,11 @@
-import { Instagram, Facebook } from "lucide-react";
+import { Instagram, Facebook, ShoppingBag } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
+
+const WOLT_URL = "https://wolt.com/en/mkd/skopje/restaurant/mal-odmor";
 
 const Footer = () => {
+  const { t } = useLanguage();
+
   return (
     <footer id="contact" className="bg-card border-t border-border py-12">
       <div className="container mx-auto px-4">
@@ -11,6 +16,15 @@ const Footer = () => {
           </div>
 
           <div className="flex items-center gap-4">
+            <a
+              href={WOLT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-primary-foreground hover:brightness-110 transition-all duration-300 text-sm font-medium hover:scale-105"
+            >
+              <ShoppingBag className="w-4 h-4" />
+              {t("footer.orderWolt")}
+            </a>
             <a
               href="https://www.instagram.com/malodmor_bakery/"
               target="_blank"
@@ -33,7 +47,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-8 pt-6 border-t border-border text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Мал Одмор. Сите права задржани.
+          © {new Date().getFullYear()} Мал Одмор. {t("footer.rights")}
         </div>
       </div>
     </footer>

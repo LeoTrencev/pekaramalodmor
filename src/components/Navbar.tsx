@@ -1,18 +1,24 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone, ShoppingBag } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import LanguageToggle from "./LanguageToggle";
+import { useLanguage } from "@/i18n/LanguageContext";
 
-const navLinks = [
-  { label: "Почетна", href: "#hero" },
-  { label: "Мени", href: "#menu" },
-  { label: "За нас", href: "#about" },
-  { label: "Локација", href: "#location" },
-  { label: "Контакт", href: "#contact" },
-];
+const WOLT_URL = "https://wolt.com/en/mkd/skopje/restaurant/mal-odmor";
+const PHONE = "+38978219675";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLanguage();
+
+  const navLinks = [
+    { label: t("nav.home"), href: "#hero" },
+    { label: t("nav.menu"), href: "#menu" },
+    { label: t("nav.about"), href: "#about" },
+    { label: t("nav.location"), href: "#location" },
+    { label: t("nav.contact"), href: "#contact" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -33,7 +39,7 @@ const Navbar = () => {
           Мал Одмор
         </a>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           {navLinks.map((l) => (
             <a
               key={l.href}
@@ -45,10 +51,39 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
-          <ThemeToggle />
+          <div className="flex items-center gap-2 ml-2">
+            <a
+              href={`tel:${PHONE}`}
+              className="flex items-center gap-1.5 px-3 py-2 rounded-full bg-primary/15 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-sm font-medium hover:scale-105"
+            >
+              <Phone className="w-4 h-4" />
+              <span className="hidden lg:inline">{t("nav.callUs")}</span>
+            </a>
+            <a
+              href={WOLT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-primary text-primary-foreground hover:brightness-110 transition-all duration-300 text-sm font-medium hover:scale-105 shadow-md"
+            >
+              <ShoppingBag className="w-4 h-4" />
+              {t("nav.order")}
+            </a>
+            <LanguageToggle />
+            <ThemeToggle />
+          </div>
         </div>
 
         <div className="flex md:hidden items-center gap-2">
+          <a
+            href={WOLT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 rounded-full bg-primary text-primary-foreground"
+            aria-label="Order"
+          >
+            <ShoppingBag className="w-5 h-5" />
+          </a>
+          <LanguageToggle />
           <ThemeToggle />
           <button onClick={() => setOpen(!open)} className={`p-2 transition-colors ${scrolled ? "text-foreground" : "text-white"}`}>
             {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -59,7 +94,7 @@ const Navbar = () => {
       {/* Mobile menu */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ${
-          open ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         } bg-background/95 backdrop-blur-md border-b border-border`}
       >
         <div className="px-4 pb-4">
@@ -73,6 +108,24 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
+          <div className="flex gap-3 pt-3 border-t border-border mt-2">
+            <a
+              href={`tel:${PHONE}`}
+              className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-full bg-secondary text-secondary-foreground font-medium text-sm"
+            >
+              <Phone className="w-4 h-4" />
+              {t("nav.callUs")}
+            </a>
+            <a
+              href={WOLT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-full bg-primary text-primary-foreground font-medium text-sm"
+            >
+              <ShoppingBag className="w-4 h-4" />
+              {t("nav.order")}
+            </a>
+          </div>
         </div>
       </div>
     </nav>
