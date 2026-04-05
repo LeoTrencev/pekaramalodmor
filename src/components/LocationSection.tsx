@@ -61,8 +61,8 @@ const LocationSection = () => {
                 title: t("loc.hours"),
                 content: (
                   <div className="text-muted-foreground space-y-1">
-                    <p>{t("loc.monSat")}: <span className="text-foreground font-medium">06:00 – 22:00</span></p>
-                    <p>{t("loc.sun")}: <span className="text-foreground font-medium">07:00 – 21:00</span></p>
+                    <p>{t("loc.monSat")}: <span className="text-foreground font-medium">06:00 – 21:30</span></p>
+                    <p>{t("loc.sun")}: <span className="text-foreground font-medium">{t("loc.closed")}</span></p>
                   </div>
                 ),
                 delay: 100,
