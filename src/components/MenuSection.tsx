@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { categories } from "@/data/menuData";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const MenuSection = () => {
   const [active, setActive] = useState(0);
   const cat = categories[active];
   const { ref: sectionRef, isVisible } = useScrollAnimation();
   const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation({ rootMargin: "0px 0px -20px 0px" });
+  const { t } = useLanguage();
+
+  const currency = t("menu.currency");
 
   return (
     <section id="menu" className="py-20 bg-background">
@@ -17,12 +21,12 @@ const MenuSection = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <p className="text-primary font-medium tracking-[0.2em] uppercase text-sm mb-2">Наше мени</p>
+          <p className="text-primary font-medium tracking-[0.2em] uppercase text-sm mb-2">{t("menu.subtitle")}</p>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground">
-            Свежо & Вкусно
+            {t("menu.title")}
           </h2>
           <p className="text-muted-foreground mt-3 max-w-lg mx-auto">
-            Разгледајте ја нашата богата понуда — од свежи пецива до домашни десерти
+            {t("menu.desc")}
           </p>
         </div>
 
@@ -39,12 +43,12 @@ const MenuSection = () => {
               }`}
             >
               <span className="mr-1.5">{c.icon}</span>
-              {c.name}
+              {t(`cat.${c.name}`)}
             </button>
           ))}
         </div>
 
-        {/* Items grid with images */}
+        {/* Items grid */}
         <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {cat.items.map((item, idx) => (
             <div
@@ -64,7 +68,7 @@ const MenuSection = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
                   <span className="absolute bottom-3 right-3 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-bold shadow-lg">
-                    {item.price} ден
+                    {item.price} {currency}
                   </span>
                 </div>
               )}
@@ -80,7 +84,7 @@ const MenuSection = () => {
                   </div>
                   {!item.image && (
                     <span className="text-primary font-bold text-lg whitespace-nowrap">
-                      {item.price} ден
+                      {item.price} {currency}
                     </span>
                   )}
                 </div>

@@ -1,27 +1,17 @@
 import { Clock, Award, Heart } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
-const features = [
-  {
-    icon: Clock,
-    title: "Секој ден свежо",
-    desc: "Од раните утрински часови, нашите пекари подготвуваат свежи производи за вас.",
-  },
-  {
-    icon: Award,
-    title: "Квалитетни состојки",
-    desc: "Користиме само најквалитетни и природни состојки за секој наш производ.",
-  },
-  {
-    icon: Heart,
-    title: "Со љубов",
-    desc: "Секое печиво е направено со внимание, грижа и страст кон занаетот.",
-  },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const AboutSection = () => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
   const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation();
+  const { t } = useLanguage();
+
+  const features = [
+    { icon: Clock, title: t("about.fresh.title"), desc: t("about.fresh.desc") },
+    { icon: Award, title: t("about.quality.title"), desc: t("about.quality.desc") },
+    { icon: Heart, title: t("about.love.title"), desc: t("about.love.desc") },
+  ];
 
   return (
     <section id="about" className="py-20 bg-card">
@@ -32,21 +22,19 @@ const AboutSection = () => {
             titleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <p className="text-primary font-medium tracking-[0.2em] uppercase text-sm mb-2">За нас</p>
+          <p className="text-primary font-medium tracking-[0.2em] uppercase text-sm mb-2">{t("about.subtitle")}</p>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-6">
-            Традиција на вкусот
+            {t("about.title")}
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            Пекара <span className="text-primary font-semibold">Мал Одмор</span> е вашето омилено место за свежи пецива, 
-            бурек, пици, десерти и многу повеќе. Лоцирани во населба Карпош 1, на Бул. Партизански Одреди 59/1 во Скопје, 
-            ве очекуваме секој работен ден од 09:00 до 17:00.
+            {t("about.desc")}
           </p>
         </div>
 
         <div ref={cardsRef} className="grid md:grid-cols-3 gap-8">
           {features.map((f, idx) => (
             <div
-              key={f.title}
+              key={idx}
               className={`text-center group transition-all duration-700 ${
                 cardsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}

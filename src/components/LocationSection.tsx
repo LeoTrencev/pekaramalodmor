@@ -1,9 +1,11 @@
 import { MapPin, Clock, Phone } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const LocationSection = () => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
   const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation();
+  const { t } = useLanguage();
 
   return (
     <section id="location" className="py-20 bg-background">
@@ -14,9 +16,9 @@ const LocationSection = () => {
             titleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <p className="text-primary font-medium tracking-[0.2em] uppercase text-sm mb-2">Најдете нè</p>
+          <p className="text-primary font-medium tracking-[0.2em] uppercase text-sm mb-2">{t("loc.subtitle")}</p>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground">
-            Локација
+            {t("loc.title")}
           </h2>
         </div>
 
@@ -36,7 +38,7 @@ const LocationSection = () => {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Локација на Мал Одмор"
+              title={t("loc.title")}
             />
           </div>
 
@@ -45,29 +47,29 @@ const LocationSection = () => {
             {[
               {
                 icon: MapPin,
-                title: "Адреса",
+                title: t("loc.address"),
                 content: (
                   <>
-                    <p className="text-muted-foreground">Бул. Партизански Одреди 59/1</p>
-                    <p className="text-muted-foreground">Карпош 1, 1000 Скопје</p>
+                    <p className="text-muted-foreground">{t("loc.address1")}</p>
+                    <p className="text-muted-foreground">{t("loc.address2")}</p>
                   </>
                 ),
                 delay: 0,
               },
               {
                 icon: Clock,
-                title: "Работно време",
+                title: t("loc.hours"),
                 content: (
                   <div className="text-muted-foreground space-y-1">
-                    <p>Понеделник — Петок: <span className="text-foreground font-medium">09:00 – 17:00</span></p>
-                    <p>Сабота — Недела: <span className="text-destructive font-medium">Затворено</span></p>
+                    <p>{t("loc.monSat")}: <span className="text-foreground font-medium">06:00 – 22:00</span></p>
+                    <p>{t("loc.sun")}: <span className="text-foreground font-medium">07:00 – 21:00</span></p>
                   </div>
                 ),
                 delay: 100,
               },
               {
                 icon: Phone,
-                title: "Контакт",
+                title: t("loc.contact"),
                 content: (
                   <a href="tel:+38978219675" className="text-primary hover:underline font-medium">
                     +389 78 219 675
@@ -84,7 +86,7 @@ const LocationSection = () => {
                 style={{ transitionDelay: `${card.delay + 200}ms` }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <card.icon className="w-6 h-6 text-primary" />
                   </div>
                   <div>
