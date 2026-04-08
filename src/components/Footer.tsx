@@ -11,6 +11,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
+            <p className="text-xs font-medium tracking-widest uppercase text-muted-foreground mb-0.5">Пекара</p>
             <h3 className="font-display text-2xl font-bold text-primary mb-1">Мал Одмор</h3>
             <p className="text-muted-foreground text-sm">Карпош 1 · Бул. Партизански Одреди 59/1, Скопје</p>
           </div>
@@ -47,7 +48,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-8 pt-6 border-t border-border text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Мал Одмор. {t("footer.rights")}
+          © {new Date().getFullYear()} Пекара Мал Одмор. {t("footer.rights")}
         </div>
       </div>
     </footer>

@@ -36,6 +36,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
         <a href="#hero" className={`font-display text-2xl font-bold transition-colors duration-300 ${scrolled ? "text-primary" : "text-white"}`}>
+          <span className="text-xs font-normal tracking-widest uppercase opacity-70 block -mb-1">Пекара</span>
           Мал Одмор
         </a>
 
