@@ -26,7 +26,7 @@ const Footer = () => {
               {t("footer.orderWolt")}
             </a>
             <a
-              href="https://www.instagram.com/malodmor_bakery/"
+              href="https://www.instagram.com/pekaramalodmor/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-foreground hover:scale-110 hover:-rotate-6"
@@ -35,7 +35,7 @@ const Footer = () => {
               <Instagram className="w-5 h-5" />
             </a>
             <a
-              href="https://www.facebook.com/malodmor/"
+              href="https://www.facebook.com/malodmorpekara/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-foreground hover:scale-110 hover:rotate-6"
