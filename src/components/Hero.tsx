@@ -15,7 +15,6 @@ const Hero = () => {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Ken Burns background */}
       <div className="absolute inset-0">
         <img
           src={heroBg}
@@ -25,10 +24,10 @@ const Hero = () => {
           height={1080}
         />
       </div>
-      {/* Dark overlay */}
+      
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
 
-      {/* Floating particles */}
+      
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(6)].map((_, i) => (
           <div
@@ -93,7 +92,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      
       <div className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-all duration-700 ${loaded ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: "1.3s" }}>
         <div className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center">
           <div className="w-1.5 h-3 bg-white/60 rounded-full mt-2 animate-bounce" />

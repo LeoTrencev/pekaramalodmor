@@ -25,7 +25,6 @@ const MenuSection = () => {
       ? categories[active!]?.nameEn
       : categories[active!]?.name;
 
-  // Close dropdown on outside click
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
@@ -54,9 +53,7 @@ const MenuSection = () => {
           </p>
         </div>
 
-        {/* Category selector - grid on desktop, dropdown on mobile */}
         <div className="mb-8">
-          {/* Mobile dropdown */}
           <div className="md:hidden relative" ref={dropdownRef}>
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -90,7 +87,7 @@ const MenuSection = () => {
             )}
           </div>
 
-          {/* Desktop grid of pills */}
+          
           <div className="hidden md:flex flex-wrap justify-center gap-2">
             <button
               onClick={() => setActive(null)}
@@ -118,7 +115,7 @@ const MenuSection = () => {
           </div>
         </div>
 
-        {/* Items grid */}
+        
         <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {displayItems.map((item, idx) => (
             <div
