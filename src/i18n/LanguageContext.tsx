@@ -9,7 +9,6 @@ interface LanguageContextType {
 }
 
 const translations: Record<string, Record<Lang, string>> = {
-  // Navbar
   "nav.home": { mk: "Почетна", en: "Home" },
   "nav.menu": { mk: "Мени", en: "Menu" },
   "nav.about": { mk: "За нас", en: "About" },
@@ -17,23 +16,17 @@ const translations: Record<string, Record<Lang, string>> = {
   "nav.contact": { mk: "Контакт", en: "Contact" },
   "nav.order": { mk: "Нарачај", en: "Order" },
   "nav.callUs": { mk: "Јави се", en: "Call Us" },
-
-  // Hero
   "hero.subtitle": { mk: "Карпош 1 · Бул. Партизански Одреди 59/1 · Скопје", en: "Karposh 1 · Bul. Partizanski Odredi 59/1 · Skopje" },
   "hero.title": { mk: "Мал Одмор", en: "Mal Odmor" },
   "hero.desc": { mk: "Традиција, квалитет и вкус — секој ден свежо печено за вас", en: "Tradition, quality and taste — freshly baked for you every day" },
   "hero.viewMenu": { mk: "Погледни го менито", en: "View Menu" },
   "hero.findUs": { mk: "Најди нè", en: "Find Us" },
   "hero.orderNow": { mk: "Нарачај сега", en: "Order Now" },
-
-  // Menu
   "menu.subtitle": { mk: "Наше мени", en: "Our Menu" },
   "menu.title": { mk: "Свежо & Вкусно", en: "Fresh & Delicious" },
   "menu.desc": { mk: "Разгледајте ја нашата богата понуда — од свежи пецива до домашни десерти", en: "Browse our rich selection — from fresh pastries to homemade desserts" },
   "menu.currency": { mk: "ден", en: "MKD" },
   "menu.all": { mk: "Сите", en: "All" },
-
-  // About
   "about.subtitle": { mk: "За нас", en: "About Us" },
   "about.title": { mk: "Традиција на вкусот", en: "A Tradition of Taste" },
   "about.desc": {
@@ -46,8 +39,6 @@ const translations: Record<string, Record<Lang, string>> = {
   "about.quality.desc": { mk: "Користиме само најквалитетни и природни состојки за секој наш производ.", en: "We use only the highest quality natural ingredients for every product." },
   "about.love.title": { mk: "Со љубов", en: "Made with Love" },
   "about.love.desc": { mk: "Секое печиво е направено со внимание, грижа и страст кон занаетот.", en: "Every pastry is made with attention, care and passion for the craft." },
-
-  // Location
   "loc.subtitle": { mk: "Најдете нè", en: "Find Us" },
   "loc.title": { mk: "Локација", en: "Location" },
   "loc.address": { mk: "Адреса", en: "Address" },
@@ -58,8 +49,6 @@ const translations: Record<string, Record<Lang, string>> = {
   "loc.sun": { mk: "Недела", en: "Sunday" },
   "loc.closed": { mk: "Затворено", en: "Closed" },
   "loc.contact": { mk: "Контакт", en: "Contact" },
-
-  // Footer
   "footer.rights": { mk: "Сите права задржани.", en: "All rights reserved." },
   "footer.orderWolt": { mk: "Нарачај преку Wolt", en: "Order via Wolt" },
 };
