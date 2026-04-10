@@ -92,12 +92,6 @@ const Hero = () => {
         </div>
       </div>
 
-      
-      <div className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-all duration-700 ${loaded ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: "1.3s" }}>
-        <div className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center">
-          <div className="w-1.5 h-3 bg-white/60 rounded-full mt-2 animate-bounce" />
-        </div>
-      </div>
     </section>
   );
 };
