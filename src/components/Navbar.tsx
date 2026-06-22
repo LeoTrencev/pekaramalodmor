@@ -5,7 +5,7 @@ import LanguageToggle from "./LanguageToggle";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const WOLT_URL = "https://wolt.com/en/mkd/skopje/restaurant/mal-odmor";
-const PHONE = "+38971216251";
+const PHONE = "+38978219675";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
