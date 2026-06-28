@@ -59,6 +59,9 @@ const Hero = () => {
           style={{ transitionDelay: "0.5s" }}
         >
           {t("hero.title")}
+          <span className="block mt-2 text-2xl md:text-3xl lg:text-4xl font-body font-normal text-white/90">
+            {t("hero.descriptor")}
+          </span>
         </h1>
         <p
           className={`text-white/90 text-lg md:text-xl font-body max-w-2xl mx-auto mb-10 drop-shadow-lg transition-all duration-700 ${

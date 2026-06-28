@@ -86,7 +86,12 @@ const Navbar = () => {
           </a>
           <LanguageToggle />
           <ThemeToggle />
-          <button onClick={() => setOpen(!open)} className={`p-2 transition-colors ${scrolled ? "text-foreground" : "text-white"}`}>
+          <button
+            onClick={() => setOpen(!open)}
+            aria-label={t("nav.toggleMenu")}
+            aria-expanded={open}
+            className={`p-2 transition-colors ${scrolled ? "text-foreground" : "text-white"}`}
+          >
             {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>

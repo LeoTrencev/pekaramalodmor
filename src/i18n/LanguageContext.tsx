@@ -18,6 +18,8 @@ const translations: Record<string, Record<Lang, string>> = {
   "nav.callUs": { mk: "Јави се", en: "Call Us" },
   "hero.subtitle": { mk: "Карпош 1 · Бул. Партизански Одреди 59/1 · Скопје", en: "Karposh 1 · Bul. Partizanski Odredi 59/1 · Skopje" },
   "hero.title": { mk: "Мал Одмор", en: "Mal Odmor" },
+  "hero.descriptor": { mk: "Пекара во Скопје", en: "Bakery in Skopje" },
+  "nav.toggleMenu": { mk: "Отвори мени", en: "Toggle menu" },
   "hero.desc": { mk: "Традиција, квалитет и вкус — секој ден свежо печено за вас", en: "Tradition, quality and taste — freshly baked for you every day" },
   "hero.viewMenu": { mk: "Погледни го менито", en: "View Menu" },
   "hero.findUs": { mk: "Најди нè", en: "Find Us" },
